@@ -218,7 +218,7 @@ body::before {
   z-index: 1001;
   opacity: 0;
   text-align: left;
-  color: #cccccc;
+  color: white;
   font-size: 10rem;
   line-height: 0.9;
 }
