@@ -319,3 +319,238 @@ body::before {
     max-width: 300px;
   }
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+  color: #333;
+}
+
+header, footer {
+  background: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}/* --- Product Page Dark/Greyscale Styles --- */
+.dark-bg {
+  background: #181818;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+.dark-header, .dark-footer {
+  background: #222;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 1.5rem 0;
+  letter-spacing: 0.1em;
+}
+.product-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100vw;
+}
+.product-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  width: 100%;
+}
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.carousel-images {
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #111;
+  margin: 0 1rem;
+}
+.carousel-img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.carousel-img.active {
+  display: block;
+}
+.carousel-btn {
+  background: #232323;
+  color: #e0e0e0;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-btn:hover {
+  background: #333;
+}
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem 0;
+}
+.thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.5;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.2s, border 0.2s;
+}
+.thumb.active, .thumb:hover {
+  opacity: 1;
+  border: 2px solid #e0e0e0;
+}
+.product-info {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.product-info h2 {
+  color: #fafafa;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.product-price {
+  color: #bdbdbd;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.product-customization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+.product-customization label {
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+.product-customization select {
+  background: #232323;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+}
+.add-to-cart {
+  background: #444;
+  color: #fafafa;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 2.5rem;
+  font-size: 1.1rem;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.1em;
+}
+.add-to-cart:hover {
+  background: #666;
+}
+.product-material, .product-desc {
+  color: #bdbdbd;
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+.related-products {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.related-products h3 {
+  color: #e0e0e0;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+.product-card.dark-card {
+  background: #232323;
+  color: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  padding: 1rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+.product-card.dark-card img {
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+}
+.product-card.dark-card p {
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+@media (max-width: 900px) {
+  .product-main {
+    padding: 0 0.5rem;
+  }
+  .product-showcase {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem;
+  }
+  .carousel-images {
+    width: 90vw;
+    max-width: 320px;
+    height: 220px;
+  }
+}
