@@ -118,11 +118,19 @@ body::before {
 }
 
 .nav-right {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
   font-size: 1.8rem;
   position: relative;
   cursor: pointer;
   display: inline-block;
   z-index: 1;
+}
+
+.nav-right:hover {
+  color: #cccccc;
+  text-decoration: underline;
 }
 
 /* Preloader */
