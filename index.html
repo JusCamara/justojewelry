@@ -12,7 +12,6 @@
 <body>
   <!-- Header Navigation -->
   <header class="header">
-    <div class="logo-left">JJ</div>
     <nav class="nav-center">
       <ul>
         <li>RINGS</li>
@@ -20,11 +19,11 @@
         <li>BRACELETS</li>
         <li>NAILS</li>
       </ul>
-  </nav>
-  <a href="mailto:justo243@gmail.com" class="nav-right cursor-pointer font-semibold transition duration-300">
-    CONTACT US
-  </a>
-
+    </nav>
+    <div class="logo-left">JJ</div>
+    <a href="mailto:justo243@gmail.com" class="nav-right cursor-pointer font-semibold transition duration-300">
+      Contact us
+    </a>
   </header>
 
   <!-- Preloader with Image Animation -->
@@ -89,6 +88,10 @@
       <div class="center-dot"></div>
     </div>
   </button>
+
+  <div class="gray-header-bar">
+    <!-- yellow squiggle SVG or canvas here -->
+  </div>
 
   <script>
     // Register GSAP plugins
@@ -258,6 +261,12 @@
         stagger: 0.2,
         ease: "power4.out"
       }, "expandFinal+=1.8");
+
+      timeline.to(".gray-header-bar", {
+        opacity: 1,
+        pointerEvents: "auto",
+        duration: 0.5
+      }, "expandFinal+=2.0");
 
       return timeline;
     }
