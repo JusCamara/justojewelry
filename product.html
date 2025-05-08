@@ -26,6 +26,448 @@
       margin-top: 80px; /* Add space below the header */
       padding-bottom: 50px; /* Add space above footer */
     }
+
+    /* Related Products Carousel Styles */
+    .related-products {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    
+    .related-products h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #e0e0e0;
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+    
+    .related-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .related-carousel .carousel-images {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      overflow: hidden;
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    
+    .related-product-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      padding: 2rem;
+    }
+    
+    .related-product-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    
+    .related-product-slide img {
+      max-width: 100%;
+      max-height: 60%;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    .related-product-info {
+      text-align: center;
+      color: #e0e0e0;
+    }
+    
+    .related-product-info h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .view-product-btn {
+      display: inline-block;
+      background: #444;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    
+    .view-product-btn:hover {
+      background: #666;
+    }
+    
+    .related-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #444;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .indicator.active {
+      background: #e0e0e0;
+    }
+    
+    .related-carousel .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      background: rgba(50, 50, 50, 0.7);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .related-carousel .carousel-btn.prev {
+      left: 10px;
+    }
+    
+    .related-carousel .carousel-btn.next {
+      right: 10px;
+    }
+    
+    .related-carousel .carousel-btn:hover {
+      background: rgba(80, 80, 80, 0.9);
+    }
+    
+    @media (max-width: 768px) {
+      .related-carousel .carousel-images {
+        height: 350px;
+      }
+      
+      .related-product-slide {
+        padding: 1rem;
+      }
+      
+      .related-product-info h4 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    /* NEW COLLECTION CAROUSEL STYLES */
+    /* Main container styles */
+    .collection-carousel-section {
+      width: 100%;
+      padding: 5rem 0;
+      background-color: #181818;
+      overflow: hidden;
+    }
+    
+    .collection-carousel-section h3 {
+      text-align: center;
+      color: #e0e0e0;
+      font-size: 1.8rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+    
+    /* Carousel container */
+    .collection-carousel {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      box-sizing: border-box;
+    }
+    
+    /* Carousel track container */
+    .collection-track-container {
+      width: 100%;
+      overflow: hidden;
+      padding: 2rem 0;
+    }
+    
+    /* Carousel track - holds all slides */
+    .collection-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+    
+    /* Individual slide styles */
+    .collection-slide {
+      min-width: calc(100% / 1.5); /* Shows 1.5 slides on screen */
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* Card container within each slide */
+    .collection-card {
+      background: #232323;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .collection-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Image container within card */
+    .collection-image {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .collection-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .collection-card:hover .collection-image img {
+      transform: scale(1.05);
+    }
+    
+    /* Content area within card */
+    .collection-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .collection-content h4 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .collection-content .product-price {
+      color: #bdbdbd;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Product options styling */
+    .collection-options {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .option-row {
+      display: flex;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: #a0a0a0;
+    }
+    
+    .option-label {
+      width: 70px;
+      font-weight: 600;
+      color: #b0b0b0;
+    }
+    
+    .option-value {
+      flex: 1;
+    }
+    
+    /* View details button */
+    .collection-btn {
+      display: inline-block;
+      background: #444;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      align-self: center;
+      margin-top: auto;
+    }
+    
+    .collection-btn:hover {
+      background: #666;
+      transform: translateY(-2px);
+    }
+    
+    .collection-btn:active {
+      transform: translateY(0);
+    }
+    
+    /* Navigation buttons */
+    .collection-nav {
+      background: rgba(40, 40, 40, 0.8);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      position: absolute;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .collection-nav:hover {
+      background: rgba(60, 60, 60, 0.9);
+      transform: scale(1.05);
+    }
+    
+    .collection-nav:active {
+      transform: scale(1);
+    }
+    
+    .collection-nav.prev {
+      left: 2rem;
+    }
+    
+    .collection-nav.next {
+      right: 2rem;
+    }
+    
+    /* Pagination indicators */
+    .collection-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+    
+    .pagination-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #444;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .pagination-dot.active {
+      background: #e0e0e0;
+      transform: scale(1.2);
+    }
+    
+    .pagination-dot:hover {
+      background: #666;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 1200px) {
+      .collection-slide {
+        min-width: calc(100% / 1.2); /* Show fewer slides on medium screens */
+      }
+      
+      .collection-nav {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .collection-slide {
+        min-width: 80%; /* Show one slide plus small portion of next/prev */
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .collection-carousel-section {
+        padding: 3rem 0;
+      }
+      
+      .collection-carousel-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      .collection-slide {
+        min-width: 90%; /* Almost full width on mobile */
+        padding: 0 1rem;
+      }
+      
+      .collection-content h4 {
+        font-size: 1.5rem;
+      }
+      
+      .collection-image {
+        height: 250px;
+      }
+      
+      .collection-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .collection-nav.prev {
+        left: 1rem;
+      }
+      
+      .collection-nav.next {
+        right: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .collection-slide {
+        min-width: 100%; /* Full width on small mobile */
+        padding: 0 0.5rem;
+      }
+      
+      .collection-content {
+        padding: 1rem;
+      }
+      
+      .collection-image {
+        height: 200px;
+      }
+      
+      .option-row {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body class="dark-bg">
@@ -75,25 +517,129 @@
         <p class="product-desc">Hand-forged silver hoops with a minimalist design.</p>
       </div>
     </section>
-    <section class="related-products">
-      <h3>Related Products</h3>
-      <div class="product-grid">
-        <div class="product-card dark-card">
-          <img src="images/optimized/DSC05296_medium.jpg" alt="Related 1" loading="lazy" />
-          <p>Minimalist Ring</p>
+    <section class="collection-carousel-section">
+      <h3>EXPLORE THE COLLECTION</h3>
+      
+      <!-- Main Collection Carousel -->
+      <div class="collection-carousel">
+        <!-- Large Navigation Arrows -->
+        <button class="collection-nav prev" aria-label="Previous product">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <!-- Carousel Track -->
+        <div class="collection-track-container">
+          <div class="collection-track">
+            <!-- Product Slide 1 -->
+            <div class="collection-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/optimized/DSC05296_large.jpg" alt="Minimalist Ring" loading="lazy" />
+                </div>
+                <div class="collection-content">
+                  <h4>Minimalist Ring</h4>
+                  <p class="product-price">$450.00 USD</p>
+                  <div class="collection-options">
+                    <div class="option-row">
+                      <span class="option-label">Size:</span>
+                      <span class="option-value">Small, Medium, Large</span>
+                    </div>
+                    <div class="option-row">
+                      <span class="option-label">Metal:</span>
+                      <span class="option-value">Silver, Gold</span>
+                    </div>
+                  </div>
+                  <a href="#" class="collection-btn">View Details</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Slide 2 -->
+            <div class="collection-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/optimized/DSC05300_large.jpg" alt="Modern Pendant" loading="lazy" />
+                </div>
+                <div class="collection-content">
+                  <h4>Modern Pendant</h4>
+                  <p class="product-price">$550.00 USD</p>
+                  <div class="collection-options">
+                    <div class="option-row">
+                      <span class="option-label">Size:</span>
+                      <span class="option-value">Standard</span>
+                    </div>
+                    <div class="option-row">
+                      <span class="option-label">Chain:</span>
+                      <span class="option-value">16", 18", 24"</span>
+                    </div>
+                  </div>
+                  <a href="#" class="collection-btn">View Details</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Slide 3 -->
+            <div class="collection-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/optimized/DSC05308_large.jpg" alt="Statement Bracelet" loading="lazy" />
+                </div>
+                <div class="collection-content">
+                  <h4>Statement Bracelet</h4>
+                  <p class="product-price">$650.00 USD</p>
+                  <div class="collection-options">
+                    <div class="option-row">
+                      <span class="option-label">Size:</span>
+                      <span class="option-value">Small, Medium, Large</span>
+                    </div>
+                    <div class="option-row">
+                      <span class="option-label">Finish:</span>
+                      <span class="option-value">Polished, Brushed</span>
+                    </div>
+                  </div>
+                  <a href="#" class="collection-btn">View Details</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product Slide 4 -->
+            <div class="collection-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/optimized/IMG_1298_large.jpg" alt="Artisan Earrings" loading="lazy" />
+                </div>
+                <div class="collection-content">
+                  <h4>Artisan Earrings</h4>
+                  <p class="product-price">$350.00 USD</p>
+                  <div class="collection-options">
+                    <div class="option-row">
+                      <span class="option-label">Style:</span>
+                      <span class="option-value">Stud, Drop</span>
+                    </div>
+                    <div class="option-row">
+                      <span class="option-label">Metal:</span>
+                      <span class="option-value">Silver, Gold</span>
+                    </div>
+                  </div>
+                  <a href="#" class="collection-btn">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="product-card dark-card">
-          <img src="images/optimized/DSC05300_medium.jpg" alt="Related 2" loading="lazy" />
-          <p>Modern Pendant</p>
-        </div>
-        <div class="product-card dark-card">
-          <img src="images/optimized/DSC05308_medium.jpg" alt="Related 3" loading="lazy" />
-          <p>Statement Bracelet</p>
-        </div>
-        <div class="product-card dark-card">
-          <img src="images/optimized/IMG_1298_medium.jpg" alt="Related 4" loading="lazy" />
-          <p>Artisan Earrings</p>
-        </div>
+        
+        <!-- Large Navigation Arrows -->
+        <button class="collection-nav next" aria-label="Next product">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <!-- Pagination Indicators -->
+      <div class="collection-pagination">
+        <span class="pagination-dot active" data-index="0" aria-label="Go to slide 1"></span>
+        <span class="pagination-dot" data-index="1" aria-label="Go to slide 2"></span>
+        <span class="pagination-dot" data-index="2" aria-label="Go to slide 3"></span>
+        <span class="pagination-dot" data-index="3" aria-label="Go to slide 4"></span>
       </div>
     </section>
   </main>
@@ -103,18 +649,282 @@
   </footer>
 
   <script>
-    // Simple JS for carousel functionality
+    // Product carousel functionality
     const images = document.querySelectorAll('.carousel-img');
     const thumbs = document.querySelectorAll('.thumb');
     let current = 0;
+    
     function showImage(idx) {
       images.forEach((img, i) => img.classList.toggle('active', i === idx));
       thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === idx));
       current = idx;
     }
+    
     document.querySelector('.carousel-btn.next').onclick = () => showImage((current + 1) % images.length);
     document.querySelector('.carousel-btn.prev').onclick = () => showImage((current - 1 + images.length) % images.length);
     thumbs.forEach((thumb, i) => thumb.onclick = () => showImage(i));
+    
+    // Related products carousel functionality
+    const relatedSlides = document.querySelectorAll('.related-product-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentRelated = 0;
+    
+    function showRelatedProduct(idx) {
+      relatedSlides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
+      indicators.forEach((indicator, i) => indicator.classList.toggle('active', i === idx));
+      currentRelated = idx;
+    }
+    
+    // Get the related products carousel buttons
+    const relatedBtnNext = document.querySelector('.related-carousel .carousel-btn.next');
+    const relatedBtnPrev = document.querySelector('.related-carousel .carousel-btn.prev');
+    
+    if (relatedBtnNext) {
+      relatedBtnNext.onclick = () => showRelatedProduct((currentRelated + 1) % relatedSlides.length);
+    }
+    
+    if (relatedBtnPrev) {
+      relatedBtnPrev.onclick = () => showRelatedProduct((currentRelated - 1 + relatedSlides.length) % relatedSlides.length);
+    }
+    
+    // Add click handlers to indicators
+    indicators.forEach((indicator, i) => {
+      indicator.onclick = () => showRelatedProduct(i);
+    });
+    
+    // Add keyboard navigation for both carousels
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        // For main product carousel
+        if (document.activeElement === document.body || document.activeElement.closest('.carousel')) {
+          showImage((current + 1) % images.length);
+        }
+        // For related products carousel
+        else if (document.activeElement.closest('.related-carousel')) {
+          showRelatedProduct((currentRelated + 1) % relatedSlides.length);
+        }
+      }
+      if (e.key === 'ArrowLeft') {
+        // For main product carousel
+        if (document.activeElement === document.body || document.activeElement.closest('.carousel')) {
+          showImage((current - 1 + images.length) % images.length);
+        }
+        // For related products carousel
+        else if (document.activeElement.closest('.related-carousel')) {
+          showRelatedProduct((currentRelated - 1 + relatedSlides.length) % relatedSlides.length);
+        }
+      }
+    });
+    
+    // Add touch swipe support for related products
+    const relatedCarousel = document.querySelector('.related-carousel .carousel-images');
+    if (relatedCarousel) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      relatedCarousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      relatedCarousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleRelatedSwipe();
+      });
+      
+      function handleRelatedSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+          // Swipe left, show next product
+          showRelatedProduct((currentRelated + 1) % relatedSlides.length);
+        }
+        if (touchEndX > touchStartX + swipeThreshold) {
+          // Swipe right, show previous product
+          showRelatedProduct((currentRelated - 1 + relatedSlides.length) % relatedSlides.length);
+        }
+      }
+    }
+    
+    // Collection Carousel Functionality
+    class CollectionCarousel {
+      constructor() {
+        // DOM Elements
+        this.track = document.querySelector('.collection-track');
+        this.slides = Array.from(document.querySelectorAll('.collection-slide'));
+        this.nextButton = document.querySelector('.collection-nav.next');
+        this.prevButton = document.querySelector('.collection-nav.prev');
+        this.dots = Array.from(document.querySelectorAll('.pagination-dot'));
+        this.slideWidth = 0;
+        this.currentIndex = 0;
+        this.slidesPerView = 0;
+        this.maxIndex = 0;
+        
+        // Event bindings
+        this.init();
+        this.bindEvents();
+        
+        // Initial setup
+        this.setSlidesPerView();
+        this.goToSlide(0);
+        window.addEventListener('resize', this.handleResize.bind(this));
+      }
+      
+      init() {
+        // Add initial position and transition to slides
+        this.slides.forEach((slide, index) => {
+          slide.dataset.index = index;
+          slide.setAttribute('aria-hidden', 'true');
+          // Set initial attributes
+          if (index === 0) {
+            slide.setAttribute('aria-hidden', 'false');
+          }
+        });
+      }
+      
+      setSlidesPerView() {
+        // Determine number of slides per view based on screen width
+        if (window.innerWidth < 480) {
+          this.slidesPerView = 1;
+        } else if (window.innerWidth < 992) {
+          this.slidesPerView = 1.2;
+        } else if (window.innerWidth < 1200) {
+          this.slidesPerView = 1.2;
+        } else {
+          this.slidesPerView = 1.5;
+        }
+        
+        // Calculate sizes
+        const slideWidth = this.track.clientWidth / this.slidesPerView;
+        this.slideWidth = slideWidth;
+        this.slides.forEach(slide => {
+          slide.style.minWidth = `${slideWidth}px`;
+        });
+        
+        // Set max index (last viewable slide)
+        this.maxIndex = Math.max(0, this.slides.length - 1);
+      }
+      
+      handleResize() {
+        this.setSlidesPerView();
+        this.goToSlide(this.currentIndex);
+      }
+      
+      bindEvents() {
+        // Button navigation
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', this.next.bind(this));
+        }
+        
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', this.prev.bind(this));
+        }
+        
+        // Pagination dots
+        this.dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          // Only handle keys if focus is on or within the carousel
+          const focusWithinCarousel = document.activeElement === document.body || 
+                                      document.activeElement.closest('.collection-carousel-section');
+          
+          if (focusWithinCarousel) {
+            if (e.key === 'ArrowRight') {
+              this.next();
+            } else if (e.key === 'ArrowLeft') {
+              this.prev();
+            }
+          }
+        });
+        
+        // Touch gestures
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+        
+        this.track.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        this.track.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          
+          // Calculate swipe distance
+          const swipeDistance = touchEndX - touchStartX;
+          
+          if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance < 0) {
+              // Swipe left, go to next
+              this.next();
+            } else {
+              // Swipe right, go to previous
+              this.prev();
+            }
+          }
+        }, { passive: true });
+      }
+      
+      next() {
+        if (this.currentIndex < this.maxIndex) {
+          this.goToSlide(this.currentIndex + 1);
+        } else {
+          // Optional: loop back to start
+          this.goToSlide(0);
+        }
+      }
+      
+      prev() {
+        if (this.currentIndex > 0) {
+          this.goToSlide(this.currentIndex - 1);
+        } else {
+          // Optional: loop to end
+          this.goToSlide(this.maxIndex);
+        }
+      }
+      
+      goToSlide(index) {
+        // Constrain index within bounds
+        const targetIndex = Math.max(0, Math.min(index, this.maxIndex));
+        this.currentIndex = targetIndex;
+        
+        // Calculate position
+        const position = -targetIndex * this.slideWidth;
+        this.track.style.transform = `translateX(${position}px)`;
+        
+        // Update active states
+        this.slides.forEach((slide, idx) => {
+          const isActive = idx === targetIndex;
+          slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+        
+        // Update pagination
+        this.dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === targetIndex);
+          dot.setAttribute('aria-current', idx === targetIndex ? 'true' : 'false');
+        });
+        
+        // Optionally update buttons (disable at ends if not looping)
+        /*
+        if (this.prevButton) {
+          this.prevButton.disabled = targetIndex === 0;
+        }
+        if (this.nextButton) {
+          this.nextButton.disabled = targetIndex === this.maxIndex;
+        }
+        */
+      }
+    }
+    
+    // Initialize the collection carousel when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new CollectionCarousel();
+    });
+    
+    // If the DOM is already loaded, initialize immediately
+    if (document.readyState !== 'loading') {
+      new CollectionCarousel();
+    }
   </script>
 </body>
 </html>
