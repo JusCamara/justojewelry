@@ -1975,10 +1975,13 @@
     const metalSelect = document.getElementById('Metal');
     metalSelect.addEventListener('change', (e) => {
       const priceElement = document.querySelector('.product-price');
+      const materialElement = document.querySelector('.product-material');
       if (e.target.value === 'Gold') {
         priceElement.textContent = '$10,000.00 USD';
+        materialElement.textContent = 'Material: 14K Solid Gold';
       } else {
         priceElement.textContent = '$800.00 USD'; // Default price for Silver
+        materialElement.textContent = 'Material: 925 Sterling Silver';
       }
     });
   </script>
