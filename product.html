@@ -874,12 +874,21 @@
     .view-button:hover {
       background: #444;
     }
+
+    /* Additional styles for the logo link */
+    .logo {
+      color: #e0e0e0; /* Keep text white */
+      text-decoration: none;
+    }
+    .logo:hover {
+      color: #e0e0e0; /* Maintain white color on hover */
+    }
   </style>
 </head>
 <body class="dark-bg">
   <header class="dark-header">
-    <h1>Justo Jewelry</h1>
-    <nav><a href="index.html">Home</a></nav>
+    <h1><a href="index.html" class="logo">Justo Jewelry</a></h1>
+    <nav></nav>
     
     <!-- Cart Button -->
     <button id="cart-toggle" class="cart-button" aria-label="View your cart">
