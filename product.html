@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Override styles for product page -->
+  <style>
+    body {
+      overflow: auto !important; /* Enable scrolling */
+      height: auto !important;
+      display: block !important; /* Replace flex display */
+    }
+    .dark-bg {
+      overflow: auto !important;
+      height: auto !important;
+      min-height: 100vh;
+      display: block !important;
+    }
+    .product-main {
+      margin-top: 80px; /* Add space below the header */
+      padding-bottom: 50px; /* Add space above footer */
+    }
+  </style>
+</head>
+<body class="dark-bg">
+  <header class="dark-header">
+    <h1>Justo Jewelry</h1>
+    <nav><a href="index.html">Home</a></nav>
+  </header>
+
+  <main class="product-main">
+    <section class="product-showcase">
+      <div class="carousel">
+        <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-images">
+          <img src="images/DSC05292.JPG" alt="Product Image 1" class="carousel-img active" />
+          <img src="images/DSC05296.JPG" alt="Product Image 2" class="carousel-img" />
+          <img src="images/DSC05300.JPG" alt="Product Image 3" class="carousel-img" />
+          <img src="images/DSC05308.JPG" alt="Product Image 4" class="carousel-img" />
+          <img src="images/IMG_1298.jpg" alt="Product Image 5" class="carousel-img" />
+        </div>
+        <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="carousel-thumbnails">
+        <img src="images/DSC05292.JPG" class="thumb active" />
+        <img src="images/DSC05296.JPG" class="thumb" />
+        <img src="images/DSC05300.JPG" class="thumb" />
+        <img src="images/DSC05308.JPG" class="thumb" />
+        <img src="images/IMG_1298.jpg" class="thumb" />
+      </div>
+      <div class="product-info">
+        <h2>Ancestral Necklace</h2>
+        <p class="product-price">$800.00 USD</p>
+        <form class="product-customization">
+          <label for="size">Size:</label>
+          <select id="size" name="size">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+          <label for="Metal">Metal:</label>
+          <select id="Metal" name="Metal">
+            <option>Silver</option>
+            <option>Gold</option>
+          </select>
+          <button type="submit" class="add-to-cart">Add to Cart</button>
+        </form>
+        <p class="product-material">Material: 925 Sterling Silver</p>
+        <p class="product-desc">Hand-forged silver hoops with a minimalist design.</p>
+      </div>
+    </section>
+    <section class="related-products">
+      <h3>Related Products</h3>
+      <div class="product-grid">
+        <div class="product-card dark-card">
+          <img src="images/DSC05296.JPG" alt="Related 1" />
+          <p>Minimalist Ring</p>
+        </div>
+        <div class="product-card dark-card">
+          <img src="images/DSC05300.JPG" alt="Related 2" />
+          <p>Modern Pendant</p>
+        </div>
+        <div class="product-card dark-card">
+          <img src="images/DSC05308.JPG" alt="Related 3" />
+          <p>Statement Bracelet</p>
+        </div>
+        <div class="product-card dark-card">
+          <img src="images/IMG_1298.jpg" alt="Related 4" />
+          <p>Artisan Earrings</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dark-footer">
+    <p>© 2025 Justo Jewelry. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simple JS for carousel functionality
+    const images = document.querySelectorAll('.carousel-img');
+    const thumbs = document.querySelectorAll('.thumb');
+    let current = 0;
+    function showImage(idx) {
+      images.forEach((img, i) => img.classList.toggle('active', i === idx));
+      thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === idx));
+      current = idx;
+    }
+    document.querySelector('.carousel-btn.next').onclick = () => showImage((current + 1) % images.length);
+    document.querySelector('.carousel-btn.prev').onclick = () => showImage((current - 1 + images.length) % images.length);
+    thumbs.forEach((thumb, i) => thumb.onclick = () => showImage(i));
+  </script>
+</body>
+</html>
