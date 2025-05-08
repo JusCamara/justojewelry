@@ -1976,12 +1976,15 @@
     metalSelect.addEventListener('change', (e) => {
       const priceElement = document.querySelector('.product-price');
       const materialElement = document.querySelector('.product-material');
+      const descriptionElement = document.querySelector('.product-desc');
       if (e.target.value === 'Gold') {
         priceElement.textContent = '$10,000.00 USD';
         materialElement.textContent = 'Material: 14K Solid Gold';
+        descriptionElement.textContent = 'Custom Woman Link Design, Garnets Set in Gold';
       } else {
         priceElement.textContent = '$800.00 USD'; // Default price for Silver
         materialElement.textContent = 'Material: 925 Sterling Silver';
+        descriptionElement.textContent = 'Custom Woman Link Design, Garnets Set in Silver';
       }
     });
   </script>
