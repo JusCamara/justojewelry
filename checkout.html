@@ -323,8 +323,12 @@
       
       .checkout-sidebar {
         width: 100%;
-        order: -1; /* Show at top on mobile */
+        order: 1; /* Move to bottom on mobile */
         margin-bottom: 30px;
+      }
+      
+      .checkout-form-container {
+        order: 0; /* Ensure form is on top */
       }
       
       .form-row {
