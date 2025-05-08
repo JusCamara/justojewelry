@@ -513,6 +513,7 @@
       bottom: 0;
       z-index: 10000;
       display: none;
+      width: 100%; /* Ensure full width container */
     }
 
     .cart-widget.is-visible {
@@ -534,6 +535,7 @@
       top: 0;
       right: 0;
       width: 380px;
+      max-width: 100%; /* Ensure it never exceeds viewport width */
       height: 100%;
       background-color: #111;
       display: flex;
@@ -541,6 +543,7 @@
       box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: hidden; /* Prevent scrolling of the drawer itself */
     }
 
     .cart-widget.is-visible .cart-drawer {
@@ -581,6 +584,7 @@
       flex: 1;
       overflow-y: auto;
       padding: 0;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .cart-body::-webkit-scrollbar {
@@ -1017,7 +1021,6 @@
     @media (max-width: 480px) {
       .cart-drawer {
         width: 100%;
-        max-width: 380px;
       }
       
       .cart-item__title {
@@ -1030,6 +1033,17 @@
       
       .recommendation-item__title {
         font-size: 11px;
+      }
+      
+      /* Make touch targets larger on mobile */
+      .quantity-btn {
+        min-width: 36px;
+        min-height: 36px;
+      }
+      
+      .cart-close-btn {
+        min-width: 30px;
+        min-height: 30px;
       }
     }
     
@@ -1619,6 +1633,24 @@
         
         // Add event listeners
         this.addEventListeners();
+        
+        // Fix for iOS Safari 100vh issue
+        this.fixIOSHeight();
+        
+        // Add event listener for viewport resize
+        window.addEventListener('resize', () => this.fixIOSHeight());
+      }
+      
+      fixIOSHeight() {
+        // Fix for the iOS Safari viewport height issue
+        if (this.cartWidget) {
+          const vh = window.innerHeight * 0.01;
+          this.cartWidget.style.height = `${window.innerHeight}px`;
+          
+          if (this.cartDrawer) {
+            this.cartDrawer.style.height = `${window.innerHeight}px`;
+          }
+        }
       }
       
       loadCart() {
@@ -1650,6 +1682,12 @@
         
         if (this.cartOverlay) {
           this.cartOverlay.addEventListener('click', () => this.closeCart());
+          
+          // Add touch event for better mobile responsiveness
+          this.cartOverlay.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            this.closeCart();
+          }, { passive: false });
         }
         
         if (this.continueShoppingBtn) {
@@ -1703,6 +1741,22 @@
           this.cartWidget.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
           this.renderCart();
+          
+          // Handle iOS height fix when opening
+          this.fixIOSHeight();
+          
+          // Ensure cart drawer is properly referenced
+          this.cartDrawer = this.cartWidget.querySelector('.cart-drawer');
+          
+          // Add touchstart listener to prevent scrolling issues
+          document.addEventListener('touchmove', this.preventScroll, { passive: false });
+        }
+      }
+      
+      preventScroll(e) {
+        // Allow scrolling within the cart body only
+        if (!e.target.closest('.cart-body')) {
+          e.preventDefault();
         }
       }
       
@@ -1711,6 +1765,9 @@
           this.cartWidget.classList.remove('is-visible');
           this.cartWidget.setAttribute('aria-hidden', 'true');
           document.body.style.overflow = '';
+          
+          // Remove touchstart listener
+          document.removeEventListener('touchmove', this.preventScroll);
         }
       }
       
